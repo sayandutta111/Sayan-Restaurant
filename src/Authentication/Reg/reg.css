@@ -1,0 +1,77 @@
+.reg-form {
+  padding: 2rem;
+
+  text-align: center;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.reg-main {
+  background-image: url(../../assets/bg.png);
+}
+input[type="text"],
+input[type="password"],
+input[type="phone"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+button[type="submit"] {
+  background-color: #554cd9;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background-color: #b93673;
+}
+.reg-form {
+  width: 30vw;
+  display: inline-block;
+  margin: 1rem;
+  background: var(--color-black);
+  color: #fff;
+  font-size: 17px;
+  border: 1px solid var(--color-golden);
+}
+
+.reg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reg-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-golden);
+}
+@media screen and (max-width: 992px) {
+  .reg-form {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .reg-form {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .reg-form {
+    width: 60vw;
+  }
+}
