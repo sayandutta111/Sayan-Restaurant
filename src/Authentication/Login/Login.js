@@ -36,11 +36,15 @@ function Login() {
     onSubmit: (values) => {
       console.log("recieved values:", values);
       axios
-        .post("https://nodeprojectapi.herokuapp.com/login", values)
+        // .post("https://nodeprojectapi.herokuapp.com/login", values)
+        .post(
+          "https://node-project-storage.herokuapp.com/postLoginData",
+          values
+        )
         .then((res) => {
           console.log("Axios Res: ", res.data);
-          window.localStorage.setItem("Token", res.data.data.token);
-          window.sessionStorage.setItem("Token", res.data.data.token);
+          window.localStorage.setItem("Token", res.data.token);
+          window.sessionStorage.setItem("Token", res.data.token);
           alert("You have successfully logged in");
           navigate("/book-table");
         })

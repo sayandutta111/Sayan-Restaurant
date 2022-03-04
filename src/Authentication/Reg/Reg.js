@@ -8,15 +8,20 @@ const ValidateForm = (formValue) => {
   const errors = {};
   const reg_exp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2.4}$/;
 
-  if (!formValue.firstname) {
-    errors.firstname = "please enter first name";
-  } else if (formValue.firstname.length < 3) {
-    errors.firstname = "minlength 3";
-  }
-  if (!formValue.lastname) {
-    errors.lastname = "please enter last name";
-  } else if (formValue.lastname.length < 3) {
-    errors.lastname = "minlength 3";
+  // if (!formValue.firstname) {
+  //   errors.firstname = "please enter first name";
+  // } else if (formValue.firstname.length < 3) {
+  //   errors.firstname = "minlength 3";
+  // }
+  // if (!formValue.lastname) {
+  //   errors.lastname = "please enter last name";
+  // } else if (formValue.lastname.length < 3) {
+  //   errors.lastname = "minlength 3";
+  // }
+  if (!formValue.username) {
+    errors.username = "please enter first name";
+  } else if (formValue.username.length < 3) {
+    errors.username = "minlength 3";
   }
   if (!formValue.email) {
     errors.username = "please enter email";
@@ -31,8 +36,9 @@ function Reg() {
   // const[initialState,setChangeState]=useState();
   const formik = useFormik({
     initialValues: {
-      firstname: "",
-      lastname: "",
+      // firstname: "",
+      // lastname: "",
+      username: "",
       email: "",
       password: "",
     },
@@ -40,13 +46,18 @@ function Reg() {
     onSubmit: (values) => {
       console.log("recieved values:", values);
       let userData = {
-        fname: values.firstname,
-        lname: values.lastname,
+        // fname: values.firstname,
+        // lname: values.lastname,
+        username: values.username,
         email: values.email,
         password: values.password,
       };
       axios
-        .post("https://nodeprojectapi.herokuapp.com/register", userData)
+        // .post("https://nodeprojectapi.herokuapp.com/register", userData)
+        .post(
+          "https://node-project-storage.herokuapp.com/postUserData",
+          userData
+        )
 
         .then((res) => {
           console.log("Axios Res: ", res);
@@ -66,7 +77,7 @@ function Reg() {
       <h1 className="reg-heading">User Registration</h1>
       <div className="reg">
         <form className="reg-form" onSubmit={formik.handleSubmit}>
-          First Name:{" "}
+          {/* First Name:{" "}
           <input
             type="text"
             name="firstname"
@@ -88,6 +99,18 @@ function Reg() {
           />
           {formik.touched.lastname && formik.errors.lastname ? (
             <span style={{ color: "red" }}>{formik.errors.lastname}</span>
+          ) : null}
+          <br></br> */}
+          User Name:{" "}
+          <input
+            type="text"
+            name="username"
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.username && formik.errors.username ? (
+            <span style={{ color: "red" }}>{formik.errors.username}</span>
           ) : null}
           <br></br>
           Email:{" "}

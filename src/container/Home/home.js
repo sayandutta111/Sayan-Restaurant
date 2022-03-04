@@ -10,8 +10,8 @@ export default function Home() {
       <Chef />
       <Intro />
       <Gallery />
-      <FooterOverlay />
       <Newsletter />
+      {/* <FooterOverlay /> */}
       <Footer />
     </div>
   );

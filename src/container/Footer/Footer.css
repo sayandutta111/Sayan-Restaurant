@@ -10,6 +10,7 @@
 
   /* background: url("../../assets/bg.png"); */
   background: -o-linear-gradient();
+  /* background: var(--color-black); */
   padding-top: 0;
 }
 
