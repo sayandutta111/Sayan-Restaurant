@@ -18,6 +18,22 @@
   font-size: large;
   cursor: pointer;
 } */
+.loadMore {
+  width: 28vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  margin-left: 35rem;
+  padding: 0.7rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-family: var(--font-base);
+  border: 1px solid var(--color-golden);
+  background-color: var(--color-black);
+  color: #fff;
+  cursor: pointer;
+}
 .search-icon {
   position: absolute;
   top: 12.5rem;

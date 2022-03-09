@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import BasicPagination from "./BasicPagination";
+import Button from "react-bootstrap/Button";
+// import BasicPagination from "./BasicPagination";
+// import Menu from "./menuApi";
 import "./menucard.css";
 // import { FaSearch } from "react-icons/fa";
 const MenuCard = ({ menuData }) => {
+  const [noOfElement, setnoOfElement] = useState(3);
+  const loadMore = () => {
+    setnoOfElement(noOfElement + noOfElement);
+  };
+
   console.log(menuData);
   const [search, setNewSearch] = useState("");
   const handleSearchChange = (e) => {
@@ -14,7 +21,7 @@ const MenuCard = ({ menuData }) => {
     : menuData.filter((prod) =>
         prod.name.toLowerCase().includes(search.toLowerCase())
       );
-
+  const slice = filtered.slice(0, noOfElement);
   return (
     <>
       <div class="col-rt-3 equal-height">
@@ -32,9 +39,8 @@ const MenuCard = ({ menuData }) => {
           </div>
         </div>
       </div>
-
       <section className="main-card--cointainer">
-        {filtered.map((curElem) => {
+        {slice.map((curElem) => {
           const { id, name, category, image, description, price } = curElem;
 
           return (
@@ -60,7 +66,14 @@ const MenuCard = ({ menuData }) => {
           );
         })}
       </section>
-      <BasicPagination />
+      <br></br>
+      <Button
+        variant="secondary"
+        onClick={() => loadMore()}
+        className="loadMore"
+      >
+        Load More
+      </Button>
     </>
   );
 };
